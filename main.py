@@ -56,11 +56,13 @@ class Practice_Format:
     self.numQuestions = numQuestions
     self.typeOfQuestions = typeOfQuestions
 
+
 class Lesson_Dictionary:
   def __init__(self, korean, english, conjugation):
     self.korean = korean
     self.english = english
     self.conjugation = conjugation
+
 
 def main():
   Main_Menu.displayWelcomeMessage()
@@ -68,4 +70,7 @@ def main():
   print(l)
   t = Get_User_Input.typeOfQuestions()
   print(t)
+
+
+  
 main()
