@@ -13,12 +13,25 @@ class Get_User_Input():
     print("\n-----------------------------------------\n")
 
     def chooseLesson():
-      lesson = -1
       lesson = int(input("Which lesson would you like to practice? [From Lessons 7 to 25]"))
       while  lesson < 7 or lesson > 25 and lesson != 0:
         print("Only lessons Lessons 7 - 25 are available.")
         lesson = int(input("Which lesson would you like to practice?"))
       return(lesson)
+
+    def limitTheNumberOfPracticeQuestions(ProgrammedLesson):
+      numQuestions = len(ProgrammedLesson)
+      txt = "There are {} possible questions to respond to."
+      print(txt.format(numQuestions))
+      limitCond = str(input("Would you like to reduce the number of questions to answer? [Y/N]"))
+      if limitCond in ['y', 'Y']:
+        newNumQuestions = int(0)
+        while newNumQuestions < 1 or newNumQuestions > numQuestions:
+          newNumQuestions = int(input(""))
+      else:
+        newNumQuestions = numQuestions
+      return(newNumQuestions)
+
 
       # There are currently {} amount of questions in Lesson X. Would you like to choose a smaller amount of questions for this session? numQuestions = input("\nHow many questions would you like to answer?")
     def typeOfQuestions():
