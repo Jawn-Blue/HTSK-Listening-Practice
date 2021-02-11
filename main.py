@@ -15,7 +15,8 @@ class GetUserInput():
     print("\n-----------------------------------------\n")
 
     def choose_lesson():
-      lesson = int(input("Which lesson would you like to practice? [From Lessons 7 to 25]"))
+      print("Which lesson would you like to practice? [From Lessons 7 to 25]")
+      lesson = int(input("LESSON: "))
       while  lesson < 7 or lesson > 25 and lesson != 0:
         print("Only lessons Lessons 7 - 25 are available.")
         lesson = int(input("Which lesson would you like to practice?"))
@@ -37,23 +38,23 @@ class GetUserInput():
 
       # There are currently {} amount of questions in Lesson X. Would you like to choose a smaller amount of questions for this session? num_questions = input("\nHow many questions would you like to answer?")
     def practice_type():
-      questionType = str("")
+      question_type = str("")
       print("\nFinally, what kind of lesson are you hoping to do? [A or B]\n")
       print("[A] KOR --> KOR -------- Type out the Korean from the audio")
       print("[B] KOR --> ENG -------- Translate the Korean audio into English")
       #[C] ENG --> KOR ===== From English Text to Korean Text (includes OPTIONAL Audio playback)
-      while questionType != "a" or questionType != "b":
-        questionType = str(input("Which lesson? [A or B]"))
-        questionType.lower()
-        if questionType in ["a", "b"]:
+      while question_type != "a" or question_type != "b":
+        question_type = str(input("Which lesson? [A or B]"))
+        question_type.lower()
+        if question_type in ["a", "b"]:
           break
         print("Only choose A or B")
-      return(questionType)
+      return(question_type)
 
 #    return(choose_lesson, num_questions, practice_type)
 
 class PracticeFormat:
-  def __init__(self, select_lesson, num_questions, practice_type):
+  def __init__(cls, select_lesson, num_questions, practice_type):
     self.select_lesson = select_lesson
     self.num_questions = num_questions
     self.practice_type = practice_type
