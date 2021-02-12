@@ -2,8 +2,10 @@ import playsound as ps
 import numpy as np
 import re
 import importlib
-import unit1database
+from HTSKListeningPractice import unit1database
 
+
+from unit1database.py import AudioDictionary
 
 class MainMenu:
 
@@ -19,11 +21,10 @@ class GetUserInput():
       lesson = int(input("LESSON: "))
       while  lesson < 7 or lesson > 25 and lesson != 0:
         print("Only lessons Lessons 7 - 25 are available.")
-        lesson = int(input("Which lesson would you like to practice?"))
+        lesson = int(input("LESSON: "))
       return(lesson)
 
-    def limit_the_number_of_practice_questions(ProgrammedLesson):
-      num_questions = len(ProgrammedLesson)
+    def limit_the_number_of_practice_questions(lesson, num_questions):
       txt = "There are {} possible questions to respond to."
       print(txt.format(num_questions))
       limitCond = str(input("Would you like to reduce the number of questions to answer? [Y/N]"))
@@ -55,29 +56,32 @@ class GetUserInput():
 
 class PracticeFormat:
   def __init__(cls, select_lesson, num_questions, practice_type):
-    self.select_lesson = select_lesson
-    self.num_questions = num_questions
-    self.practice_type = practice_type
+    cls.select_lesson = select_lesson
+    cls.num_questions = num_questions
+    cls.practice_type = practice_type
 
 
 class LessonDetails:
   def __init__(cls, korean, english, conjugation):
-    self.korean = korean
-    self.english = english
-    self.conjugation = conjugation
+    cls.korean = korean
+    cls.english = english
+    cls.conjugation = conjugation
 
   def retrieve_lesson_from_database(num_lesson):
-    str = "L{}arr"
-    str = str.format(num_lesson)
-    lesson_object =
+    strlesson = "L{}arr"
+    strlesson = strlesson.format(num_lesson)
+    obj_lesson = AudioDictionary.strlesson
+    return obj_lesson
 
 
 def main():
   MainMenu.display_welcome_message()
   numLesson = GetUserInput.choose_lesson()
-  lessonObject = LessonDetails.retrieve_lesson_from_database(numLesson)
-  t = GetUserInput.practice_type()
-  print(t)
+  arrlesson = LessonDetails.retrieve_lesson_from_database(numLesson)
+  print(arrlesson.type())
+
+  #t = GetUserInput.practice_type()
+#  print(t)
 
 
 
